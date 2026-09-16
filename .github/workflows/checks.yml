@@ -34,7 +34,7 @@ jobs:
     env:
       CORE_WHEEL_URL: ${{ inputs.core-wheel-url || 'https://github.com/gramlot-org/gramlot-django/releases/download/v0.1.0-preview.1/gramlot-0.1.5-py3-none-any.whl' }}
       CORE_WHEEL_SHA256: ${{ inputs.core-wheel-sha256 || '63466802618c8cbd3fed0a83e1072556085a31bd522477dbcfe1122417a26f4a' }}
-      CONSUMER_PYTHON: temp/consumer/${{ runner.os == 'Windows' && 'Scripts/python.exe' || 'bin/python' }}
+      CONSUMER_PYTHON: temp/consumer/${{ matrix.os == 'windows-latest' && 'Scripts/python.exe' || 'bin/python' }}
     defaults:
       run:
         shell: bash
