@@ -108,6 +108,18 @@ compiled browser runtime. `pip install gramlot-django` from PyPI alone is not
 available yet. See [GitHub preview details](docs/github-preview.md),
 [the quickstart](docs/quickstart.md) and [release procedure](docs/release.md).
 
+## Bonus: genro-bag for other Python projects
+
+Installing `gramlot-django` also installs
+[`genro-bag`](https://github.com/genropy/genro-bag), the Python library behind
+Gramlot's Data Bags. A Bag is a hierarchical data container with XML serialization.
+It can also be useful outside Gramlot—for organizing nested data, configuration
+or data exchanged between Python components.
+
+`genro-bag` is independently usable: it does not require a Gramlot interface or
+a Django application. You can install it on its own with `pip install genro-bag`.
+See the [genro-bag documentation](https://genro-bag.readthedocs.io).
+
 ## Bakery showcase
 
 The full Wagtail Bakery site is the main integration demonstration, with Gramlot
