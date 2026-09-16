@@ -58,6 +58,13 @@ Start with the [human overview](docs/overview.md) or its
 [documentation policy](docs/documentation.md) identifies the initial paired set
 and the existing detailed guides that have not yet been paired.
 
+## Experimental examples
+
+The examples use the experimental version of Gramlot maintained in
+[gramlot-poc](https://github.com/gramlot-org/gramlot-poc). They will be progressively
+adapted as Gramlot evolves and its APIs are reviewed and consolidated. Treat their
+current code as experimental examples, not as a stable API reference.
+
 ## Implemented POC scope
 
 - `DjangoPageCollection`: normal Django URLconf integration, page discovery,
