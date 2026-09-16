@@ -6,7 +6,9 @@
 
 This repository is a proof of concept. The intention is to move to a reviewed
 prerelease soon, after review and consolidation of both Gramlot and its Django
-integration. There is no committed release date or stable API guarantee.
+integration. These previews evaluate APIs and design choices. Described behavior
+is intended behavior and may have bugs or incomplete cases. There is no committed
+release date or stable API guarantee.
 The GitHub downloadable prerelease remains experimental; a distribution label
 is not architectural acceptance. Neither package was published on PyPI by this work.
 

@@ -19,9 +19,9 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-# The required core API exists in the local 0.1.5 checkout; see docs/getting-started.md.
+# POC installs use the packaged experimental core, not an unavailable PyPI version.
 dependencies = [
-    "gramlot==0.1.5",
+    "gramlot @ https://github.com/gramlot-org/gramlot-django/releases/download/v0.1.0-preview.1/gramlot-0.1.5-py3-none-any.whl#sha256=63466802618c8cbd3fed0a83e1072556085a31bd522477dbcfe1122417a26f4a",
     "Django>=5.2,<6.1",
     "asgiref>=3.8.1,<4",
     "genro-bag>=0.21.1,<0.22",
@@ -40,6 +40,9 @@ docs = ["Sphinx>=8.2,<9", "furo>=2024.8.6,<2027", "myst-parser>=4,<6"]
 Homepage = "https://github.com/gramlot-org/gramlot-django"
 Repository = "https://github.com/gramlot-org/gramlot-django"
 "Bug Tracker" = "https://github.com/gramlot-org/gramlot-django/issues"
+
+[tool.hatch.metadata]
+allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/gramlot_django"]

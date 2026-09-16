@@ -11,7 +11,7 @@
 
 ## 2. Coverage
 
-- Paired now: overview, architecture, documentation, readthedocs.
+- Paired now: overview, architecture, documentation, readthedocs, admin-spa, inspector.
 - Existing integration/install/demo/release guides remain detailed references;
   mirrors are added on substantial revision. Coverage is not complete.
 - Dated verification reports keep scope/date. README links both views;

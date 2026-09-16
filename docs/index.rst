@@ -7,6 +7,8 @@ Gramlot Django
 
 Python-first Gramlot interfaces hosted by Django, with Django ORM integration.
 This documentation describes an **experimental POC** under review and consolidation.
+These previews evaluate APIs and design choices. Described behavior is intended;
+bugs and unfinished cases may exist.
 Examples use ``gramlot-poc`` and will evolve with Gramlot.
 
 Start with :doc:`github-preview` to install the POC, :doc:`quickstart` for your
@@ -31,6 +33,8 @@ first page, or :doc:`architecture` for the server and database boundaries.
 
    architecture
    django
+   admin-spa
+   inspector
 
 .. toctree::
    :maxdepth: 1

@@ -102,3 +102,9 @@ version requires an explicit corrected release/yank decision.
 
 GitHub publication alone does not make the unqualified pip command work. The
 final acceptance gate is public PyPI plus a working installed Django page.
+
+## Current direct dependency
+
+The GitHub POC declares a checksummed core wheel URL so source installs work without
+an unavailable registry version. Replace this direct reference with a coordinated
+registry dependency before any PyPI publication. The archived preview tag is unchanged.

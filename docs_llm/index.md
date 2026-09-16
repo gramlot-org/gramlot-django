@@ -6,6 +6,8 @@ This is a POC, not the consolidated product. Read in order:
 2. [Server and database architecture](architecture.md).
 3. [Documentation policy and coverage](documentation.md).
 4. [Sphinx, CI and Read the Docs](readthedocs.md).
+5. [Experimental SPA admin and validation](admin-spa.md).
+6. [Data and Source Inspector](inspector.md).
 
 For implementation details, use the existing expanded guides:
 

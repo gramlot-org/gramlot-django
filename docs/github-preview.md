@@ -1,4 +1,4 @@
-# GitHub preview: v0.1.0-preview.1
+# Install the experimental preview
 
 This download is a POC under review, not the forthcoming consolidated prerelease.
 Gramlot itself is being reviewed and consolidated; see [repository roles](overview.md).
@@ -11,16 +11,25 @@ candidate. Neither version is published on PyPI as part of this release.
 Create and activate a Python 3.11+ virtual environment, then run:
 
 ```sh
-python -m pip install \
-  'https://github.com/gramlot-org/gramlot-django/releases/download/v0.1.0-preview.1/gramlot-0.1.5-py3-none-any.whl#sha256=63466802618c8cbd3fed0a83e1072556085a31bd522477dbcfe1122417a26f4a' \
-  'git+https://github.com/gramlot-org/gramlot-django.git@v0.1.0-preview.1'
+python -m pip install 'git+https://github.com/gramlot-org/gramlot-django.git@main'
 gramlot-django demo --open
 ```
 
-Git is needed for the source installation above. Alternatively, install both
-wheels from the same GitHub prerelease together with `python -m pip install`.
-The runtime is prebuilt: Node.js is not required. Polls is bundled; Bakery needs
-the repository example and its separate dependencies; see [Bakery](bakery-demo.md).
+This one-command installation from `main` automatically resolves the core wheel
+from GitHub, including its SHA-256 pin. Git is needed; Node.js and sibling core
+checkouts are not. The package version `gramlot==0.1.5` identifies the supplied
+experimental snapshot, not an available tag in either core source repository.
+The clean `gramlot` repository is not yet the installable product; development
+experiments live in `gramlot-poc`.
+
+The older adapter tag `v0.1.0-preview.1` does not declare this direct dependency.
+To reproduce that archived preview, download and install **both** wheels attached
+to its release. For the current usable POC, use the command above.
+
+These previews evaluate API and design choices. Described behavior is intended
+behavior; bugs and unfinished cases may exist. Passing checks cover specific
+scenarios and are not a bug-free guarantee. Polls is bundled; Bakery needs the
+separate repository example and Wagtail dependencies; see [Bakery](bakery-demo.md).
 
 ## Artifact provenance
 
@@ -29,7 +38,8 @@ used to verify the Bakery inspector theme correction on 2026-09-15. They are
 provided here to make the extracted adapter installable while the coordinated
 core release is pending. This does not publish or tag the core repository's
 other ongoing development. `SHA256SUMS` covers every attached distribution.
-The adapter source corresponds to this repository's preview tag.
+The archived adapter artifacts correspond to the preview tag. Current source
+installation follows `main`; use its full commit SHA for reproducibility.
 
 This is an experimental preview. The demo server is for local development.
 

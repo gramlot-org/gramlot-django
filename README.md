@@ -26,6 +26,9 @@ Django hosting, page authoring and ORM integration for Gramlot.
 
 Treat everything in this repository as experimental. The intention is to turn
 this POC into a reviewed prerelease soon; that transition has not happened yet.
+These previews are for evaluating APIs and design choices. Documentation describes
+the intended behavior, not a guarantee that every path is bug-free. Bugs, incomplete
+features and changes in behavior are expected during experimentation.
 APIs, architecture and examples can change. The downloadable GitHub preview is
 labelled a prerelease for distribution purposes, but it remains a POC and does
 not establish a stable product contract. It is not published on PyPI.
@@ -95,18 +98,20 @@ pages. See [the integration guide](docs/django.md) and [examples](examples/READM
 ## Install the GitHub preview
 
 Python 3.11+; no Node.js or local Gramlot checkout is required.
-In a virtual environment, install the compatible core and this adapter together:
+In a virtual environment, install this adapter with one command:
 
 ```sh
-python -m pip install \
-  'https://github.com/gramlot-org/gramlot-django/releases/download/v0.1.0-preview.1/gramlot-0.1.5-py3-none-any.whl#sha256=63466802618c8cbd3fed0a83e1072556085a31bd522477dbcfe1122417a26f4a' \
-  'git+https://github.com/gramlot-org/gramlot-django.git@v0.1.0-preview.1'
+python -m pip install 'git+https://github.com/gramlot-org/gramlot-django.git@main'
 gramlot-django demo --open
 ```
 
-The GitHub prerelease also provides wheels, source distributions and SHA-256
-checksums. The bundled Gramlot 0.1.5 candidate supplies the Python APIs and
-compiled browser runtime. `pip install gramlot-django` from PyPI alone is not
+The current adapter automatically downloads a checksummed experimental core wheel
+from this repository's GitHub assets. Its package version is `0.1.5`: this is a
+packaged POC snapshot, not a claim that `gramlot` or `gramlot-poc` publishes a
+matching source release. You do not need either core checkout or a core Git tag.
+The core wheel includes Python APIs and the compiled browser runtime.
+The older `v0.1.0-preview.1` adapter tag predates this automatic dependency setup;
+use `main` for the command above. `pip install gramlot-django` from PyPI alone is not
 available yet. See [GitHub preview details](docs/github-preview.md),
 [the quickstart](docs/quickstart.md) and [release procedure](docs/release.md).
 
@@ -127,6 +132,26 @@ See the [genro-bag documentation](https://genro-bag.readthedocs.io).
 The full Wagtail Bakery site is the main integration demonstration, with Gramlot
 SPA pages inside its navigation and templates. See [Bakery setup](docs/bakery-demo.md)
 for `gramlot-django demo bakery`. Its dependencies and project files remain separate.
+
+## Experimental SPA admin and Inspector
+
+The Bakery preview includes a SPA table admin: explicit model/field declarations
+produce grids and forms through Django ModelForms and Gramlot declarations.
+Custom form validation participates in remote field checks and saving. Relations
+have initial selectors and read-only related grids. This is an experiment in APIs
+and design choices; intended behavior may have bugs and is not complete admin coverage.
+See [forms, validation and limitations](docs/admin-spa.md).
+
+![Experimental generated admin form](docs/_static/screenshots/spa-admin-form.png)
+
+In Explore, the small magnifying glass opens the **Inspector**. Browse live **Data**
+and **Source**, then edit values or declaration attributes to see their effects
+on the running page. These edits do not rewrite Python files; bindings and services
+may react to data changes. The separate Python source viewer is read-only.
+See the [step-by-step Inspector guide](docs/inspector.md), including screenshots,
+reload behavior and the scope of these experimental interactions.
+
+![Inspector editing live Data](docs/_static/screenshots/inspector-data.png)
 
 ## Polls demo
 

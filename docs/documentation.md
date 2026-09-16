@@ -13,7 +13,7 @@ Use the same numbered sections for stable references, reciprocal links and Engli
 
 ## 2. Current coverage
 
-The initial paired set is `overview.md`, `architecture.md`, `documentation.md` and `readthedocs.md`.
+The initial paired set is `overview.md`, `architecture.md`, `documentation.md` and `readthedocs.md`, `admin-spa.md` and `inspector.md`.
 The existing integration, installation, demos and release guides in `docs/` remain
 the detailed references; they do not yet all have concise counterparts. Historical
 verification reports retain their date and scope. Add mirrors as these guides are

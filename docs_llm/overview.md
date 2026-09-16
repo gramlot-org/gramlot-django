@@ -4,6 +4,7 @@
 
 ## 1. Status and repositories
 
+- Preview for evaluating APIs/design choices; intended behavior may have bugs or incomplete cases.
 - POC under review; reviewed prerelease intended soon, no fixed date or stable API.
 - GitHub prerelease is an experimental download, not product acceptance; no PyPI publication.
 - [gramlot-poc](https://github.com/gramlot-org/gramlot-poc): executable experimental core.

@@ -5,10 +5,10 @@ The adapter and compatible core candidate are not published on PyPI.
 
 ## Install
 
-In your project's Python virtual environment, after publication:
+In your project's Python virtual environment, install the current experimental preview:
 
 ```sh
-python -m pip install gramlot-django
+python -m pip install 'git+https://github.com/gramlot-org/gramlot-django.git@main'
 ```
 
 The dependency installs include Django and Gramlot's Python APIs and complete

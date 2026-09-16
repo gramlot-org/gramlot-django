@@ -155,15 +155,16 @@ implemented by this adapter.
 
 `ExclusiveBagStore` remains local to one collection/process and is not a Django
 session store or shared multi-worker backend. This integration does not add
-WebSockets, automatic ModelForms, admin generation,
-Wagtail revision editing, or a universal ORM abstraction.
+WebSockets, Wagtail revision editing, or a universal ORM abstraction.
+An experimental table editor generates ModelForms and Gramlot forms for explicitly
+exposed fields; see [SPA admin and validation](admin-spa.md).
 
 ## Examples and verification
 
 The maintained [Django customer example](https://github.com/gramlot-org/gramlot-django/blob/develop/examples/README.md) uses a grid,
 a permission-checked update and a transaction, authored entirely through Gramlot.
 The owner-supplied local Bakerydemo copy is separately exercised with Django 6.0
-and Wagtail 8; see the [implementation checkpoint](https://github.com/gramlot-org/gramlot/blob/develop/docs/development/django-adapter-2026-09-13.md).
+and Wagtail 8; see the [Bakery guide](bakery-demo.md).
 
 ## Staff-only model schema tree (PoC)
 
@@ -201,8 +202,9 @@ Subclass `gramlot_django.tables.DjangoTablesPage` and declare explicit
 model selection, search (up to 100 rows), and New/Save/Cancel in a record dialog.
 Double-click or Enter activates a grid row. Server-side ModelForms validate
 allowlisted fields; each operation checks active staff status and Django model
-permissions. The first projection uses text inputs for scalar fields only.
-Relations, deletion and custom widget mapping are not implemented in this slice.
+permissions. Scalar fields use text inputs or text areas; foreign keys use
+`dbSelect`, and exposed reverse relations have read-only grids. Deletion and a
+complete widget mapping are not provided. See [the experimental admin guide](admin-spa.md).
 
 ## Django template preview in the IDE
 

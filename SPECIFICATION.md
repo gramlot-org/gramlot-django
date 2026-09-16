@@ -51,7 +51,9 @@ Bakery remains a separate demonstration with its own dependencies.
 
 ## Dependency status
 
-The existing adapter is local work requiring the local Gramlot 0.1.5 source.
+Development uses the local Gramlot 0.1.5 source. Consumer installs from current
+GitHub main automatically obtain a checksummed 0.1.5 POC wheel from this repository's
+preview assets; no matching core Git tag or sibling checkout is required.
 PyPI currently provides only 0.1.0a1 (verified 2026-09-15). Development uses an
 explicit sibling source override. A compatible core distribution must become
 available before this integration can be installed solely from package indexes.
