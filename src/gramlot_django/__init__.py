@@ -1,2 +1,6 @@
 # Copyright 2026 Softwell S.r.l. - SPDX-License-Identifier: Apache-2.0
-"""Gramlot applications hosted by Django. Pre-alpha package scaffold; no runtime API yet."""
+"""Django hosting and ORM helpers for Gramlot."""
+from .application import DjangoPageCollection
+from .page import DjangoPage, selection_result
+
+__all__ = ['DjangoPage', 'DjangoPageCollection', 'selection_result']

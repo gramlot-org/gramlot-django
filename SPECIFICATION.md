@@ -1,37 +1,59 @@
-# gramlot-django: initial scope
+# gramlot-django: ownership and scope
 
-## Repository purpose
+## Maturity and consolidation — 2026-09-16
 
-This repository hosts the Django integration for Gramlot.
+This integration is a POC under review, intended to become a reviewed prerelease
+soon. The downloadable GitHub prerelease remains experimental. `gramlot-poc`
+is the current executable dependency; `gramlot` will hold the first consolidated
+product version and currently defines principles and reviewed ports.
+Django supplies distinct server and ORM/database adaptations; neither role
+implies the other. See docs/architecture.md and its docs_llm counterpart.
 
-## Intended integration
+## Owner direction — 2026-09-15
 
-Django integration, with the Bakery application as the intended presentation example.
+This repository is the home of Gramlot's Django integration, including Python
+adaptation to the server and database and Django-specific page definitions.
+Transfer existing Django implementation, tests, guides and examples out of the
+Gramlot framework repository. This supersedes the initial consumer-only scaffold
+and the former `gramlot.contrib.django` ownership.
 
-Use the existing gramlot.contrib.django adapter and standard Django project conventions. Verify which published Gramlot distribution contains the adapter before pinning dependencies.
+## Boundary
 
-## Established constraints
+`gramlot_django` owns Django request/response handling, URL composition, host
+middleware integration, CSRF and permissions, ORM selection/schema helpers,
+DjangoPage, DjangoTablesPage and DjangoIdePage. Django examples, including Bakery,
+belong here. Consumers use normal Django project conventions.
 
-- Gramlot is an independent Python-authoring and JavaScript-runtime framework.
-- Application UI, state and interactions use Gramlot declarations and services.
-- Author application pages in Python; reusable browser behavior belongs in the framework.
-- Keep host-specific dependencies in the consumer integration.
-- Reuse existing adapters before introducing another implementation.
-- Distinguish installed/released capabilities from local, unpublished work.
+Gramlot retains its server-independent Python WebPage, builder, Source/Data
+contracts, service invocation, shared host utilities and browser runtime. The
+adapter uses the supported `gramlot.hosting` and `gramlot.transport` interfaces;
+compatibility is verified with core and installed-package contract tests.
+No duplicate JavaScript runtime or generic page implementation belongs here.
 
-## Initial delivered scope
+## Packaged demonstration
 
-Repository metadata, license, package namespace, development dependencies,
-quality tooling, Git hooks, Sphinx documentation and CI. No application API,
-server command, database, demo content or adapter migration is implemented yet.
+The base package includes a small Polls application and the `gramlot-django demo`
+launcher. It uses normal Django migrations and runserver, keeps its SQLite data
+outside the installed package, and serves standard Django Polls views/templates.
+Gramlot SPA pages are embedded in that host site and authored in Python.
+Bakery remains a separate demonstration with its own dependencies.
 
-## Before application implementation
+## Migration acceptance
 
-1. Inventory the existing host integration and examples.
-2. Decide package ownership versus example application ownership.
-3. Select compatible, available runtime dependency versions.
-4. Implement a minimal host profile and real behavior tests.
-5. Verify its rendered Python-authored Gramlot page.
+- Preserve current adapter behavior and run its real Django integration tests.
+- Update consumer imports to `gramlot_django`.
+- Remove active Django adapter code and the Django extra from Gramlot after
+  verifying the transferred implementation.
+- Move maintained Django guides and examples; preserve licenses and historical
+  decision records, with pointers to the new ownership where appropriate.
+- Verify adapter packaging and core independence; retain unrelated local work.
+- Keep application UI, state and requests in Python-authored Gramlot declarations.
 
-The seven presentation scenarios in the framework context remain the wider
-roadmap. Creating these three repositories does not implement every scenario.
+## Dependency status
+
+The existing adapter is local work requiring the local Gramlot 0.1.5 source.
+PyPI currently provides only 0.1.0a1 (verified 2026-09-15). Development uses an
+explicit sibling source override. A compatible core distribution must become
+available before this integration can be installed solely from package indexes.
+The owner authorized a GitHub preview on 2026-09-16. PyPI publication and
+deployment remain outside that authorization.
