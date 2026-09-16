@@ -4,6 +4,8 @@ gramlot-django
 .. toctree::
    :maxdepth: 2
 
+   overview
+   documentation
    getting-started
    architecture
    django

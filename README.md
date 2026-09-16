@@ -1,14 +1,64 @@
 # gramlot-django
 
+**Current compatibility lane:** this extracted adapter develops and tests against
+sibling `gramlot-poc`, not the documentation-only clean `gramlot` repository.
+The clean product's [constitution](https://github.com/gramlot-org/gramlot/blob/main/docs/00-constitution.md)
+guides subsequent reviewed integration work. Existing package imports are unchanged.
+
+
 Django hosting, page authoring and ORM integration for Gramlot.
 
-**Status: Pre-Alpha — 0.1.0 GitHub preview; not published on PyPI.**
+**Status: proof of concept (POC), under active review and consolidation.**
 
-This repository owns the Python Django adapter, its behavior tests and Django
-examples. Import it through `gramlot_django`. Gramlot supplies the independent
-Python builder/page services, typed transport and browser runtime.
+Treat everything in this repository as experimental. The intention is to turn
+this POC into a reviewed prerelease soon; that transition has not happened yet.
+APIs, architecture and examples can change. The downloadable GitHub preview is
+labelled a prerelease for distribution purposes, but it remains a POC and does
+not establish a stable product contract. It is not published on PyPI.
 
-## Implemented scope
+Gramlot itself is being reviewed and consolidated:
+
+- **[gramlot-poc](https://github.com/gramlot-org/gramlot-poc)** is the reference
+  for the experimental, executable version of Gramlot used by this adapter.
+- **[gramlot](https://github.com/gramlot-org/gramlot)** will contain the first
+  actual, consolidated product version. It currently holds the product principles
+  and reviewed-port process; do not use it as an installable replacement for the POC.
+
+Working code and tests in the POC are evidence for review, not automatic acceptance
+into the future product. Start with Gramlot's
+[constitution](https://github.com/gramlot-org/gramlot/blob/main/docs/00-constitution.md)
+and [overview](https://github.com/gramlot-org/gramlot/blob/main/docs/01-overview.md).
+
+## Server and database adaptation
+
+Gramlot supplies the independent Python declarations, Source/Data model and
+JavaScript browser runtime. External integrations have two separate roles:
+
+| Role | Responsibility | Django implementation in this POC |
+| --- | --- | --- |
+| Server adaptation | Connect pages and services to the host: requests, routes, authentication, CSRF and responses | Django views, URLconf, middleware and request context |
+| Database adaptation | Connect data services to the database or ORM: queries, projections and schema | Django ORM helpers, including `selection_result` and schema browsing |
+
+Each supported server supplies its server-specific adaptation; each supported
+database integration supplies its database adaptation. Django participates in
+both roles. Hosting and database choices remain architecturally independent:
+using Django as a host does not make database behavior part of the server contract.
+Current Django ORM helpers do not imply implementation of every future shared
+database capability. See [architecture](docs/architecture.md).
+
+## Documentation for people and LLMs
+
+Following Gramlot's documentation convention, `docs/` contains expanded explanations
+and `docs_llm/` contains concise, human-readable counterparts. Paired documents keep
+the same decisions, constraints, implementation status and open questions; they are
+updated together.
+
+Start with the [human overview](docs/overview.md) or its
+[LLM-oriented counterpart](docs_llm/overview.md). The
+[documentation policy](docs/documentation.md) identifies the initial paired set
+and the existing detailed guides that have not yet been paired.
+
+## Implemented POC scope
 
 - `DjangoPageCollection`: normal Django URLconf integration, page discovery,
   Source/Data RPC, packaged runtime delivery and host templates.
@@ -55,7 +105,7 @@ gramlot-django demo --open
 
 This starts a Django Polls site with an embedded Gramlot SPA and shared SQLite votes at
 `http://127.0.0.1:8064/polls/`. See [demo options](docs/polls-demo.md).
-This is a development preview, not a production release.
+This downloadable preview remains a POC, not a production release.
 
 ## Development
 

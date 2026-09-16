@@ -17,3 +17,14 @@ of the Django adapter extracted from Gramlot.
 - Do not add assistant co-author trailers to commit messages.
 - Keep documentation aligned with implemented behavior; no speculative API claims.
 - Do not introduce automatic package publication or deployment without authorization.
+
+## Architecture and paired documentation
+
+- Read the Gramlot product constitution and overview in the sibling `gramlot`
+  repository before architecture changes; use `gramlot-poc` for experimental evidence.
+- Keep server adaptation separate from database/ORM adaptation, including Django's two roles.
+- Treat this project and its downloadable preview as a POC under review, not a stable contract.
+- Follow docs/documentation.md: update paired docs/<path> and docs_llm/<path> together,
+  preserving decisions, constraints, status and open questions. New architecture and
+  product-contract documents require both views. Existing unpaired guides are tracked
+  by that policy; do not claim complete mirror coverage.

@@ -1,6 +1,8 @@
 # Candidate verification and coordinated release
 
-Status: preparation only. No packages have been published by this work.
+Status: POC GitHub preview published; PyPI release preparation only.
+The GitHub prerelease label identifies an experimental download, not the
+reviewed prerelease planned after core and adapter consolidation.
 Candidate versions are Gramlot 0.1.5 and gramlot-django 0.1.0. Project maturity
 remains pre-alpha; the final version syntax allows normal pip selection.
 

@@ -1,6 +1,9 @@
 # GitHub preview: v0.1.0-preview.1
 
-This prerelease pairs gramlot-django 0.1.0 with a compatible Gramlot 0.1.5
+This download is a POC under review, not the forthcoming consolidated prerelease.
+Gramlot itself is being reviewed and consolidated; see [repository roles](overview.md).
+
+This GitHub prerelease pairs gramlot-django 0.1.0 with a compatible Gramlot 0.1.5
 candidate. Neither version is published on PyPI as part of this release.
 
 ## Installation

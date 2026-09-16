@@ -1,5 +1,14 @@
 # gramlot-django: ownership and scope
 
+## Maturity and consolidation — 2026-09-16
+
+This integration is a POC under review, intended to become a reviewed prerelease
+soon. The downloadable GitHub prerelease remains experimental. `gramlot-poc`
+is the current executable dependency; `gramlot` will hold the first consolidated
+product version and currently defines principles and reviewed ports.
+Django supplies distinct server and ORM/database adaptations; neither role
+implies the other. See docs/architecture.md and its docs_llm counterpart.
+
 ## Owner direction — 2026-09-15
 
 This repository is the home of Gramlot's Django integration, including Python
