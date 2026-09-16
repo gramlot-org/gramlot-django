@@ -15,6 +15,13 @@ a server or provide a working demo. Adapter extraction, runtime dependencies,
 page migration and host commands are future implementation work described in
 [SPECIFICATION.md](SPECIFICATION.md).
 
+## Experimental examples
+
+The examples use the experimental version of Gramlot maintained in
+[gramlot-poc](https://github.com/gramlot-org/gramlot-poc). They will be progressively
+adapted as Gramlot evolves and its APIs are reviewed and consolidated. Treat their
+current code as experimental examples, not as a stable API reference.
+
 ## Development
 
 ```sh
