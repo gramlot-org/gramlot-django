@@ -28,7 +28,7 @@ git config core.hooksPath hooks
 ```
 
 Python 3.11+; Hatchling build backend; pytest, Ruff and advisory mypy; Sphinx
-with Markdown support. These conventions follow `genro-asgi`. `uv.lock` records
+with Markdown support. `uv.lock` records
 the development environment. A pip-based setup is also supported:
 `python -m pip install -e '.[dev,docs]'`.
 

@@ -1,9 +1,8 @@
 # gramlot-django: initial scope
 
-## Recorded owner request — 2026-09-15
+## Repository purpose
 
-Create this repository under `gramlot-org` using `genro-asgi` as the boilerplate
-reference. Keep the checkout under `/Users/gporcari/Sviluppo/gramlot`.
+This repository hosts the Django integration for Gramlot.
 
 ## Intended integration
 
