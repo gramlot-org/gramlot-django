@@ -7,7 +7,7 @@ soon. The downloadable GitHub prerelease remains experimental. `gramlot-poc`
 is the current executable dependency; `gramlot` will hold the first consolidated
 product version and currently defines principles and reviewed ports.
 Django supplies distinct server and ORM/database adaptations; neither role
-implies the other. See docs/architecture.md and its docs_llm counterpart.
+implies the other. See docs/030-architecture.md and its docs_llm counterpart.
 
 ## Owner direction — 2026-09-15
 

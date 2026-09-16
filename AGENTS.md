@@ -24,7 +24,10 @@ of the Django adapter extracted from Gramlot.
   repository before architecture changes; use `gramlot-poc` for experimental evidence.
 - Keep server adaptation separate from database/ORM adaptation, including Django's two roles.
 - Treat this project and its downloadable preview as a POC under review, not a stable contract.
-- Follow docs/documentation.md: update paired docs/<path> and docs_llm/<path> together,
+- Follow docs/055-documentation.md: update paired docs/<path> and docs_llm/<path> together,
   preserving decisions, constraints, status and open questions. New architecture and
   product-contract documents require both views. Existing unpaired guides are tracked
   by that policy; do not claim complete mirror coverage.
+
+- Number maintained guides in steps of five; mirror paths and stable GD document/block
+  IDs between docs and docs_llm. Preserve IDs across moves; follow docs/055-documentation.md.

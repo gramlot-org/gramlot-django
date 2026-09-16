@@ -1,4 +1,6 @@
-# Candidate verification and coordinated release
+# 065 · Candidate verification and coordinated release
+
+Document ID: **GD-065**.
 
 Status: POC GitHub preview published; PyPI release preparation only.
 The GitHub prerelease label identifies an experimental download, not the
@@ -6,7 +8,11 @@ reviewed prerelease planned after core and adapter consolidation.
 Candidate versions are Gramlot 0.1.5 and gramlot-django 0.1.0. Project maturity
 remains pre-alpha; the final version syntax allows normal pip selection.
 
-## Verify the exact candidate files
+<a id="gd-065-005"></a>
+
+## 005 · Verify the exact candidate files
+
+Block ID: **GD-065-005**.
 
 Gramlot owns JavaScript compilation. Prepare its assets and browser distribution,
 then build its Python wheel/sdist. Build this adapter separately. Keep the exact
@@ -39,7 +45,11 @@ the quickstart outside both repositories, checks installed import paths, runs
 and verifies binding, Data RPC, remote Source and lazy CodeMirror, HTML and Markdown editor resources.
 All off-site browser requests are blocked and reported as failures.
 
-## CI
+<a id="gd-065-010"></a>
+
+## 010 · CI
+
+Block ID: **GD-065-010**.
 
 Adapter CI installs package dependencies; it does not clone core develop or build
 JavaScript. It tests Python/Django combinations on Linux, with additional Windows
@@ -54,7 +64,11 @@ The ordinary push/release gate cannot resolve an unpublished core from PyPI.
 Run candidate verification first, then publish core, then validate/release the
 adapter. Never replace this gate with a moving-branch source checkout.
 
-## Account configuration
+<a id="gd-065-015"></a>
+
+## 015 · Account configuration
+
+Block ID: **GD-065-015**.
 
 An owner with PyPI project access must configure these Trusted Publishers:
 
@@ -72,7 +86,11 @@ verified by writing these workflow files.
 [PyPI Trusted Publishing documentation](https://docs.pypi.org/trusted-publishers/using-a-publisher/)
 explains the account-side configuration. No registry token belongs in Git.
 
-## Release sequence
+<a id="gd-065-020"></a>
+
+## 020 · Release sequence
+
+Block ID: **GD-065-020**.
 
 1. Review and select the complete commit set in core and the adapter. Preserve
    unrelated work; the current dirty core includes concurrent feature changes.
@@ -103,7 +121,11 @@ version requires an explicit corrected release/yank decision.
 GitHub publication alone does not make the unqualified pip command work. The
 final acceptance gate is public PyPI plus a working installed Django page.
 
-## Current direct dependency
+<a id="gd-065-025"></a>
+
+## 025 · Current direct dependency
+
+Block ID: **GD-065-025**.
 
 The GitHub POC declares a checksummed core wheel URL so source installs work without
 an unavailable registry version. Replace this direct reference with a coordinated

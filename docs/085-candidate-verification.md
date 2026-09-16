@@ -1,6 +1,12 @@
-# Distribution candidate verification — 2026-09-15
+# 085 · Distribution candidate verification — 2026-09-15
 
-## Candidate and scope
+Document ID: **GD-085**.
+
+<a id="gd-085-005"></a>
+
+## 005 · Candidate and scope
+
+Block ID: **GD-085-005**.
 
 Gramlot 0.1.5 and gramlot-django 0.1.0 are local candidates, not a public release.
 The Django adapter, examples and maintained guides are extracted; generic Python
@@ -10,7 +16,11 @@ the same public hosting/transport contract.
 The working trees contain concurrent development. These results concern the
 local candidate files; they do not identify an approved release commit set.
 
-## Checks
+<a id="gd-085-010"></a>
+
+## 010 · Checks
+
+Block ID: **GD-085-010**.
 
 - Django: 33 tests, Ruff and Sphinx with warnings treated as errors pass.
 - Core: 161 Python tests pass with the CI client-module configuration.
@@ -40,7 +50,11 @@ local candidate files; they do not identify an approved release commit set.
 Candidate artifacts and `SHA256SUMS` are retained in the local ignored
 `temp/candidate-dist/` directory. These files are not published artifacts.
 
-## Remaining release work
+<a id="gd-085-015"></a>
+
+## 015 · Remaining release work
+
+Block ID: **GD-085-015**.
 
 1. Review the combined core release scope and create the release commits/tags.
 2. Configure PyPI Trusted Publishers and GitHub release environments.
@@ -54,5 +68,5 @@ GitHub inspection found existing core `pypi` and `release` environments without
 protection rules; the adapter has no release environment yet. PyPI publisher
 configuration remains unverified and requires account access.
 
-See [release procedure](release.md) for the exact manual sequence. No publication,
+See [release procedure](065-release.md) for the exact manual sequence. No publication,
 commit, push or deployment has been performed by this task.

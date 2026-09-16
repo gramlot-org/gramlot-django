@@ -1,11 +1,17 @@
-# Bakery demonstration
+# 025 · Bakery demonstration
+
+Document ID: **GD-025**.
 
 Bakery is the main integration showcase: an existing Wagtail site with its own
 pages, navigation, media and CMS, extended with Gramlot SPA pages.
 The original project is [wagtail/bakerydemo](https://github.com/wagtail/bakerydemo).
 The adapted snapshot and upstream license are in `examples/bakerydemo`.
 
-## Install and run
+<a id="gd-025-005"></a>
+
+## 005 · Install and run
+
+Block ID: **GD-025-005**.
 
 Bakery is separate from the lightweight installed Polls demo. In a dedicated
 Python 3.12+ environment, install the compatible Gramlot and gramlot-django
@@ -40,7 +46,11 @@ No repository downloads or cloud/production dependencies are added by the CLI.
 
 Polls remains available with `gramlot-django demo polls` as a small install test.
 
-## Reactive product services
+<a id="gd-025-010"></a>
+
+## 010 · Reactive product services
+
+Block ID: **GD-025-010**.
 
 Explore first declares its visual blocks, then fills each grid block with an
 explicit `GridStruct` and a named `rpcStore`. Endpoints return rows through

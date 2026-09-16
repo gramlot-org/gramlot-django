@@ -5,7 +5,7 @@ public explorer, SPA dashboard, schema browser and table editor. Upstream
 licensing is retained in LICENSE. This is a Django 6 / Wagtail 8 development PoC.
 
 Install this directory's requirements and this repository's `gramlot_django`
-package with its local Gramlot core dependency; see `../../docs/getting-started.md`.
+package with its local Gramlot core dependency; see `../../docs/050-getting-started.md`.
 The recommended launcher restores a separate persistent database automatically:
 
 ```sh

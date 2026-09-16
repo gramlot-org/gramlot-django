@@ -1,20 +1,34 @@
-# Integration architecture
+# 030 · Integration architecture
 
-[Expanded counterpart and source links](../docs/architecture.md).
+Document ID: **GD-030**.
 
-## 1. Authority and status
+[Expanded counterpart and source links](../docs/030-architecture.md).
+
+<a id="gd-030-005"></a>
+
+## 005 · Authority and status
+
+Block ID: **GD-030-005**.
 
 - Django POC under review. Gramlot constitution §§2/7/8 and overview §5 define boundaries.
 - `gramlot-poc` supplies experimental evidence; accepted product lives in `gramlot`.
 
-## 2. Independent adaptations
+<a id="gd-030-010"></a>
+
+## 010 · Independent adaptations
+
+Block ID: **GD-030-010**.
 
 - Server adapter: pages/services to host; Django URLs, requests/responses, auth, CSRF, middleware.
 - DB adapter: shared data services to backend/ORM; Django queries, projections, schema/model operations.
 - Django supplies both roles. Django ORM is not a database engine.
 - Independence does not imply every host/backend pair is implemented or tested.
 
-## 3. Implemented POC
+<a id="gd-030-015"></a>
+
+## 015 · Implemented POC
+
+Block ID: **GD-030-015**.
 
 - Core: WebPage/builder, Source/Data, shared services, browser runtime.
 - Host: `DjangoPageCollection`; database: `selection_result`, ORM/schema/model helpers.
@@ -22,7 +36,11 @@
 - Applications own models/settings, record authorization and transactions.
 - Public POC interfaces: `gramlot.hosting`, `gramlot.transport`; assets remain in core.
 
-## 4. Open database contracts
+<a id="gd-030-020"></a>
+
+## 020 · Open database contracts
+
+Block ID: **GD-030-020**.
 
 - Constitution: `common`, `fake`, `genropy`, `sqlalchemy`; SQLite backend through SQLAlchemy.
 - Owner direction 2026-09-16 identifies Django ORM adaptation here; no claim of an
@@ -33,7 +51,11 @@
 - Keep minimum, common optional and implementation-specific capabilities distinct.
 - Contract consolidation and reviewed ports remain open.
 
-## 5. Authoring and evidence
+<a id="gd-030-025"></a>
+
+## 025 · Authoring and evidence
+
+Block ID: **GD-030-025**.
 
 - Python-first Source/Data, bindings, controllers, stores and services.
 - No app-local DOM/fetch/parallel-state bypasses; fix reusable framework gaps.

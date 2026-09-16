@@ -1,4 +1,6 @@
-# Django adapter
+# 035 · Django adapter
+
+Document ID: **GD-035**.
 
 `gramlot_django` hosts Python-authored Gramlot pages inside an existing
 Django project. It provides Source and Data RPC, the packaged browser runtime,
@@ -6,11 +8,15 @@ request access, optional page permissions and an explicit ORM selection helper.
 Django is a dependency of this package; this adapter does not import FastAPI or GenroPy.
 
 Install this repository against the local Gramlot 0.1.5 source as described in
-[getting started](getting-started.md). This integration is not published yet.
+[getting started](050-getting-started.md). This integration is not published yet.
 The supported dependency range is Django 5.2 and 6.0, subject to each Django
 version's Python requirements.
 
-## Add pages to a project
+<a id="gd-035-005"></a>
+
+## 005 · Add pages to a project
+
+Block ID: **GD-035-005**.
 
 Create `pages/hello.py` under your application's chosen directory:
 
@@ -56,7 +62,11 @@ No custom `manage.py` replacement, server bootstrap, Django REST Framework,
 GenroPy, or `INSTALLED_APPS` entry for Gramlot is required. Keep Django's normal
 middleware, URLconf and management commands.
 
-## Use the host website template
+<a id="gd-035-010"></a>
+
+## 010 · Use the host website template
+
+Block ID: **GD-035-010**.
 
 Pass `template_name='products/explorer.html'` to `DjangoPageCollection` to use a
 normal Django template, including inheritance and request context processors.
@@ -79,7 +89,11 @@ keep them intact. Place the import map before scripts that import Gramlot module
 CSRF and access checks are identical to the default shell. This contract embeds
 one Gramlot application per document.
 
-## Authentication, permissions and CSRF
+<a id="gd-035-015"></a>
+
+## 015 · Authentication, permissions and CSRF
+
+Block ID: **GD-035-015**.
 
 Use Django's session and authentication middleware. You can require login and
 permissions for an entire collection:
@@ -111,7 +125,11 @@ configuration only allows the same origin. No application JavaScript or
 `csrf_exempt` is needed. Native middleware rejections retain their HTTP status
 in client errors, even when their bodies are HTML.
 
-## ORM results and transactions
+<a id="gd-035-020"></a>
+
+## 020 · ORM results and transactions
+
+Block ID: **GD-035-020**.
 
 Project selected fields explicitly:
 
@@ -143,7 +161,11 @@ inside synchronous methods or an appropriate Django async bridge. Use
 adds implicit commits. With `DEBUG=False`, unexpected exception details are
 logged server-side and replaced with a generic response.
 
-## Assets and limits
+<a id="gd-035-025"></a>
+
+## 025 · Assets and limits
+
+Block ID: **GD-035-025**.
 
 The collection serves the shared packaged runtime under `PREFIX/_runtime/`.
 Installed bundles have content-versioned URLs and immutable caching; source
@@ -157,16 +179,24 @@ implemented by this adapter.
 session store or shared multi-worker backend. This integration does not add
 WebSockets, Wagtail revision editing, or a universal ORM abstraction.
 An experimental table editor generates ModelForms and Gramlot forms for explicitly
-exposed fields; see [SPA admin and validation](admin-spa.md).
+exposed fields; see [SPA admin and validation](040-admin-spa.md).
 
-## Examples and verification
+<a id="gd-035-030"></a>
+
+## 030 · Examples and verification
+
+Block ID: **GD-035-030**.
 
 The maintained [Django customer example](https://github.com/gramlot-org/gramlot-django/blob/develop/examples/README.md) uses a grid,
 a permission-checked update and a transaction, authored entirely through Gramlot.
 The owner-supplied local Bakerydemo copy is separately exercised with Django 6.0
-and Wagtail 8; see the [Bakery guide](bakery-demo.md).
+and Wagtail 8; see the [Bakery guide](025-bakery-demo.md).
 
-## Staff-only model schema tree (PoC)
+<a id="gd-035-035"></a>
+
+## 035 · Staff-only model schema tree (PoC)
+
+Block ID: **GD-035-035**.
 
 `DjangoPage.model_tree` exposes lazy model metadata to active staff users only.
 It is disabled by default (`model_roots = ()`). Set `model_roots` to explicit
@@ -195,7 +225,11 @@ Auto-created intermediary models and hidden fields are excluded; generic targets
 Python properties and internal StreamField block schemas are not expanded.
 Relation paths are limited to 24 levels, including cyclic model graphs.
 
-## Generated table editor (local PoC)
+<a id="gd-035-040"></a>
+
+## 040 · Generated table editor (local PoC)
+
+Block ID: **GD-035-040**.
 
 Subclass `gramlot_django.tables.DjangoTablesPage` and declare explicit
 `table_fields = {'myapp.country': ['title', 'sort_order']}`. The page provides
@@ -204,9 +238,13 @@ Double-click or Enter activates a grid row. Server-side ModelForms validate
 allowlisted fields; each operation checks active staff status and Django model
 permissions. Scalar fields use text inputs or text areas; foreign keys use
 `dbSelect`, and exposed reverse relations have read-only grids. Deletion and a
-complete widget mapping are not provided. See [the experimental admin guide](admin-spa.md).
+complete widget mapping are not provided. See [the experimental admin guide](040-admin-spa.md).
 
-## Django template preview in the IDE
+<a id="gd-035-045"></a>
+
+## 045 · Django template preview in the IDE
+
+Block ID: **GD-035-045**.
 
 `DjangoIdePage.document_preview` renders the unsaved HTML template through the
 Django template backend and request context processors. Override
@@ -224,7 +262,11 @@ sandboxed, so scripts and interactive menus do not execute. Click Preview again
 after edits to render the current text; changes to included templates use their
 saved versions on disk.
 
-## Remote field validation and custom clean methods
+<a id="gd-035-050"></a>
+
+## 050 · Remote field validation and custom clean methods
+
+Block ID: **GD-035-050**.
 
 `DjangoTablesPage.table_forms` maps an exposed model label to a custom ModelForm
 class. Both remote validation and saving use that class, restricted to

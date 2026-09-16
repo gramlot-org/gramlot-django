@@ -1,11 +1,17 @@
-# Plan: install Gramlot Django with one pip command
+# 075 · Plan: install Gramlot Django with one pip command
+
+Document ID: **GD-075**.
 
 Status: implementation in progress, 2026-09-15, following owner authorization.
-This document retains the acceptance plan; see [release procedure](release.md)
+This document retains the acceptance plan; see [release procedure](065-release.md)
 for candidate installation and the remaining publication gates. Earlier
 migration results are baselines, not acceptance of the final public release.
 
-## Implementation status
+<a id="gd-075-005"></a>
+
+## 005 · Implementation status
+
+Block ID: **GD-075-005**.
 
 The adapter has been extracted and uses the public core hosting/transport API.
 Candidate wheels include the complete local browser dependency graph, including
@@ -15,9 +21,13 @@ blocked. Package-based CI and manual publication workflows are prepared.
 Still pending: the final reviewed release commit set, remote CI matrix execution,
 PyPI publisher configuration and publication, removal of the temporary development
 source override after core publication, and the final public-index installation.
-See [candidate verification](candidate-verification.md) for measured local results.
+See [candidate verification](085-candidate-verification.md) for measured local results.
 
-## Target developer experience
+<a id="gd-075-010"></a>
+
+## 010 · Target developer experience
+
+Block ID: **GD-075-010**.
 
 In a fresh supported Python environment:
 
@@ -37,7 +47,11 @@ project, mount a page collection in its URLconf and write a Python DjangoPage.
 A documented minimal page must render and execute a Source/Data RPC with the
 installed packages. No CDN or external runtime download is needed after setup.
 
-## Agreed distribution boundary
+<a id="gd-075-015"></a>
+
+## 015 · Agreed distribution boundary
+
+Block ID: **GD-075-015**.
 
 | Deliverable | Owner | Distribution |
 | --- | --- | --- |
@@ -56,7 +70,11 @@ must not become a prerequisite for the first page.
 Do not add an installation hook that downloads JavaScript from GitHub. pip's
 normal package dependency resolution supplies the runtime through `gramlot`.
 
-## Initial gaps observed before implementation
+<a id="gd-075-020"></a>
+
+## 020 · Initial gaps observed before implementation
+
+Block ID: **GD-075-020**.
 
 - `gramlot-django` is `0.0.0.dev0` and requires local `gramlot==0.1.5` through
   `tool.uv.sources`. Earlier registry inspection found only core `0.1.0a1` on
@@ -74,7 +92,11 @@ normal package dependency resolution supplies the runtime through `gramlot`.
   do not include unrelated working changes automatically.
 - No final public-index installation or fresh-project browser gate exists yet.
 
-## 1. Establish the release baseline and compatibility contract
+<a id="gd-075-025"></a>
+
+## 025 · Establish the release baseline and compatibility contract
+
+Block ID: **GD-075-025**.
 
 Owners: both repositories. Dependency: none.
 
@@ -99,7 +121,11 @@ Done: written supported boundary, selected candidate commits/versions and passin
 contract tests. Resolve any unpublished dependency needed by core release CI,
 including the concurrent FastAPI integration, without widening Django's scope.
 
-## 2. Make the Gramlot artifact self-contained
+<a id="gd-075-030"></a>
+
+## 030 · Make the Gramlot artifact self-contained
+
+Block ID: **GD-075-030**.
 
 Owner: Gramlot. Dependency: phase 1.
 
@@ -120,7 +146,11 @@ Owner: Gramlot. Dependency: phase 1.
 Done: candidate wheel, sdist and browser ZIP pass integrity/parity checks;
 wheel installation and sdist reconstruction work on a Python-only machine.
 
-## 3. Make gramlot-django consume published-style packages
+<a id="gd-075-035"></a>
+
+## 035 · Make gramlot-django consume published-style packages
+
+Block ID: **GD-075-035**.
 
 Owner: gramlot-django. Dependencies: phases 1 and 2.
 
@@ -141,7 +171,11 @@ Owner: gramlot-django. Dependencies: phases 1 and 2.
 Done: candidate `gramlot-django` installs with its core wheel into a new environment
 and runs the existing behavior suite without editable/source installations.
 
-## 4. Add consumer-focused CI and browser acceptance
+<a id="gd-075-040"></a>
+
+## 040 · Add consumer-focused CI and browser acceptance
+
+Block ID: **GD-075-040**.
 
 Owners: both repositories. Dependencies: phases 2 and 3.
 
@@ -168,7 +202,11 @@ Owners: both repositories. Dependencies: phases 2 and 3.
 Done: automated install, package-boundary and browser gates pass against the exact
 candidate artifacts. Ruff/test failures block delivery; mypy remains advisory.
 
-## 5. Write the complete quickstart and release documentation
+<a id="gd-075-045"></a>
+
+## 045 · Write the complete quickstart and release documentation
+
+Block ID: **GD-075-045**.
 
 Owners: both repositories. Dependencies: phases 1 through 4.
 
@@ -188,7 +226,11 @@ Owners: both repositories. Dependencies: phases 1 through 4.
 Done: a developer unfamiliar with these repositories can reach a working page by
 following the public guide; both documentation builds pass with warnings as errors.
 
-## 6. Prepare the coordinated publication procedure
+<a id="gd-075-050"></a>
+
+## 050 · Prepare the coordinated publication procedure
+
+Block ID: **GD-075-050**.
 
 Owners: release maintainers. Dependencies: phases 1 through 5.
 
@@ -211,7 +253,11 @@ Done: a concrete reviewable release set and executable runbook are ready. Actual
 publication follows explicit owner authorization, consistent with AGENTS.md's
 rule: "Do not introduce automatic package publication or deployment without authorization."
 
-## 7. Publish in dependency order and verify the exact promise
+<a id="gd-075-055"></a>
+
+## 055 · Publish in dependency order and verify the exact promise
+
+Block ID: **GD-075-055**.
 
 Owners: release maintainers. Dependencies: phase 6 and publication authorization.
 
@@ -236,14 +282,22 @@ Done: the exact command succeeds from public PyPI with no additional flags or
 manual downloads, and the resulting packages render and run the minimal Django
 application. Only then mark the one-command installation objective complete.
 
-## Scope exclusions
+<a id="gd-075-060"></a>
+
+## 060 · Scope exclusions
+
+Block ID: **GD-075-060**.
 
 This plan does not deploy a user's site, automatically configure a production
 database, replace standard Django management commands, move generic core features
 into the adapter or require npm/CDN access on consumer machines. Existing local
 presentation environments may be upgraded separately after the release is verified.
 
-## References
+<a id="gd-075-065"></a>
+
+## 065 · References
+
+Block ID: **GD-075-065**.
 
 - [pip installation and prerelease selection](https://pip.pypa.io/en/stable/cli/pip_install/#pre-release-versions)
 - [PyPI Trusted Publishing](https://docs.pypi.org/trusted-publishers/using-a-publisher/)

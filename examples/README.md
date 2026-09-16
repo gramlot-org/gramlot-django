@@ -5,7 +5,7 @@ a permission-checked, transactional city update. Application UI, state and RPC
 use Gramlot declarations; Django's own admin supplies the host login screen.
 
 Install this repository and its local core dependency using
-[getting started](../docs/getting-started.md), activate that environment,
+[getting started](../docs/050-getting-started.md), activate that environment,
 then run from this directory:
 
 ```sh
@@ -24,7 +24,7 @@ The SQLite file stays beside this example and is ignored by Git. To isolate a
 run, set `GRAMLOT_DJANGO_DB` to another local SQLite path. The settings are for
 local demonstration, not a deployment configuration.
 
-See [the adapter guide](../docs/django.md) for existing-project integration,
+See [the adapter guide](../docs/035-django.md) for existing-project integration,
 authentication, CSRF, typed selections and lifecycle limits.
 
 ## Complete Bakery PoC

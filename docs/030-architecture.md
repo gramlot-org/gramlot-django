@@ -1,8 +1,14 @@
-# Integration architecture
+# 030 · Integration architecture
 
-[Concise counterpart](https://github.com/gramlot-org/gramlot-django/blob/develop/docs_llm/architecture.md).
+Document ID: **GD-030**.
 
-## 1. Authority and current status
+[Concise counterpart](https://github.com/gramlot-org/gramlot-django/blob/develop/docs_llm/030-architecture.md).
+
+<a id="gd-030-005"></a>
+
+## 005 · Authority and current status
+
+Block ID: **GD-030-005**.
 
 This is the architecture of the Django POC, under review alongside Gramlot.
 The product [constitution, sections 2, 7 and 8](https://github.com/gramlot-org/gramlot/blob/main/docs/00-constitution.md)
@@ -11,7 +17,11 @@ define independent server and database boundaries. Experimental implementations
 remain in [gramlot-poc](https://github.com/gramlot-org/gramlot-poc); they do not
 become accepted product contracts merely by working here.
 
-## 2. Two independent adaptations
+<a id="gd-030-010"></a>
+
+## 010 · Two independent adaptations
+
+Block ID: **GD-030-010**.
 
 **Server adaptation** connects Gramlot pages and services to a hosting framework.
 Each supported host provides its own adaptation. For Django this includes URL
@@ -26,7 +36,11 @@ A single package can provide both adaptations; the roles remain independent.
 Django is an ORM integration here, not a database engine. Independence is an
 architectural boundary, not a claim that every host/backend combination is tested.
 
-## 3. Implemented POC ownership
+<a id="gd-030-015"></a>
+
+## 015 · Implemented POC ownership
+
+Block ID: **GD-030-015**.
 
 | Owner | Responsibilities |
 | --- | --- |
@@ -41,7 +55,11 @@ that convenience class does not merge the two architectural responsibilities.
 `gramlot.hosting` and `gramlot.transport`; runtime assets come from the installed
 core package. Shared browser services are not copied into this integration.
 
-## 4. Database contracts and remaining work
+<a id="gd-030-020"></a>
+
+## 020 · Database contracts and remaining work
+
+Block ID: **GD-030-020**.
 
 The product constitution separates `common`, `fake`, `genropy` and `sqlalchemy`
 database work and treats SQLite as a backend through SQLAlchemy. The owner's
@@ -57,7 +75,11 @@ product adapter category. Current Django helpers do not establish the future
 common optional and implementation-specific capabilities must remain distinguished.
 Consolidating these contracts and reviewing ports are still open work.
 
-## 5. Authoring and evidence
+<a id="gd-030-025"></a>
+
+## 025 · Authoring and evidence
+
+Block ID: **GD-030-025**.
 
 Application UI and requests use Python-first Gramlot declarations, Source, Data,
 bindings, controllers, stores and services. Framework gaps belong in reusable

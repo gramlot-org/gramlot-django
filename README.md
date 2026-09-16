@@ -61,18 +61,20 @@ database integration supplies its database adaptation. Django participates in
 both roles. Hosting and database choices remain architecturally independent:
 using Django as a host does not make database behavior part of the server contract.
 Current Django ORM helpers do not imply implementation of every future shared
-database capability. See [architecture](docs/architecture.md).
+database capability. See [architecture](docs/030-architecture.md).
 
 ## Documentation for people and LLMs
 
 Following Gramlot's documentation convention, `docs/` contains expanded explanations
 and `docs_llm/` contains concise, human-readable counterparts. Paired documents keep
 the same decisions, constraints, implementation status and open questions; they are
-updated together.
+updated together. Filenames are ordered in steps of five (`005`, `010`, `015`);
+paired guides share stable document and section IDs, such as `GD-040-025` for
+admin validation. See the [numbering policy](docs/055-documentation.md#gd-055-020).
 
-Start with the [human overview](docs/overview.md) or its
-[LLM-oriented counterpart](docs_llm/overview.md). The
-[documentation policy](docs/documentation.md) identifies the initial paired set
+Start with the [human overview](docs/005-overview.md) or its
+[LLM-oriented counterpart](docs_llm/005-overview.md). The
+[documentation policy](docs/055-documentation.md) identifies the initial paired set
 and the existing detailed guides that have not yet been paired.
 
 ## Experimental examples
@@ -93,7 +95,7 @@ current code as experimental examples, not as a stable API reference.
 
 Use Django's normal settings, middleware, database configuration and management
 commands. Application UI and interactions are authored through Python Gramlot
-pages. See [the integration guide](docs/django.md) and [examples](examples/README.md).
+pages. See [the integration guide](docs/035-django.md) and [examples](examples/README.md).
 
 ## Install the GitHub preview
 
@@ -112,8 +114,8 @@ matching source release. You do not need either core checkout or a core Git tag.
 The core wheel includes Python APIs and the compiled browser runtime.
 The older `v0.1.0-preview.1` adapter tag predates this automatic dependency setup;
 use `main` for the command above. `pip install gramlot-django` from PyPI alone is not
-available yet. See [GitHub preview details](docs/github-preview.md),
-[the quickstart](docs/quickstart.md) and [release procedure](docs/release.md).
+available yet. See [GitHub preview details](docs/010-github-preview.md),
+[the quickstart](docs/015-quickstart.md) and [release procedure](docs/065-release.md).
 
 ## Bonus: genro-bag for other Python projects
 
@@ -130,7 +132,7 @@ See the [genro-bag documentation](https://genro-bag.readthedocs.io).
 ## Bakery showcase
 
 The full Wagtail Bakery site is the main integration demonstration, with Gramlot
-SPA pages inside its navigation and templates. See [Bakery setup](docs/bakery-demo.md)
+SPA pages inside its navigation and templates. See [Bakery setup](docs/025-bakery-demo.md)
 for `gramlot-django demo bakery`. Its dependencies and project files remain separate.
 
 ## Experimental SPA admin and Inspector
@@ -140,7 +142,7 @@ produce grids and forms through Django ModelForms and Gramlot declarations.
 Custom form validation participates in remote field checks and saving. Relations
 have initial selectors and read-only related grids. This is an experiment in APIs
 and design choices; intended behavior may have bugs and is not complete admin coverage.
-See [forms, validation and limitations](docs/admin-spa.md).
+See [forms, validation and limitations](docs/040-admin-spa.md).
 
 ![Experimental generated admin form](docs/_static/screenshots/spa-admin-form.png)
 
@@ -148,7 +150,7 @@ In Explore, the small magnifying glass opens the **Inspector**. Browse live **Da
 and **Source**, then edit values or declaration attributes to see their effects
 on the running page. These edits do not rewrite Python files; bindings and services
 may react to data changes. The separate Python source viewer is read-only.
-See the [step-by-step Inspector guide](docs/inspector.md), including screenshots,
+See the [step-by-step Inspector guide](docs/045-inspector.md), including screenshots,
 reload behavior and the scope of these experimental interactions.
 
 ![Inspector editing live Data](docs/_static/screenshots/inspector-data.png)
@@ -162,7 +164,7 @@ gramlot-django demo --open
 ```
 
 This starts a Django Polls site with an embedded Gramlot SPA and shared SQLite votes at
-`http://127.0.0.1:8064/polls/`. See [demo options](docs/polls-demo.md).
+`http://127.0.0.1:8064/polls/`. See [demo options](docs/020-polls-demo.md).
 This downloadable preview remains a POC, not a production release.
 
 ## Documentation build
@@ -170,7 +172,7 @@ This downloadable preview remains a POC, not a production release.
 The Sphinx documentation uses the Gramlot Furo theme, including the shared logo
 and light/dark colors. CI builds the HTML with warnings treated as errors.
 The repository includes Read the Docs configuration; see
-[build and hosting instructions](docs/readthedocs.md) for the external project setup.
+[build and hosting instructions](docs/060-readthedocs.md) for the external project setup.
 
 ## Development
 
@@ -188,10 +190,10 @@ uv run python -m twine check dist/*
 git config core.hooksPath hooks
 ```
 
-See [getting started](docs/getting-started.md) for installation details and
+See [getting started](docs/050-getting-started.md) for installation details and
 [the ownership specification](SPECIFICATION.md) for the core/adapter boundary.
 `develop` is the development branch; `main` is the baseline.
-See [candidate verification](docs/candidate-verification.md) for the passing local
+See [candidate verification](docs/085-candidate-verification.md) for the passing local
 package and offline browser checks. Manual publication workflows are prepared
 but have not been triggered.
 No deployment is configured.

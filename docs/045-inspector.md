@@ -1,21 +1,35 @@
-# Experimental Data and Source Inspector
+# 045 · Experimental Data and Source Inspector
 
-[Concise counterpart](https://github.com/gramlot-org/gramlot-django/blob/main/docs_llm/inspector.md).
+Document ID: **GD-045**.
 
-## 1. Preview status
+[Concise counterpart](https://github.com/gramlot-org/gramlot-django/blob/main/docs_llm/045-inspector.md).
+
+<a id="gd-045-005"></a>
+
+## 005 · Preview status
+
+Block ID: **GD-045-005**.
 
 The Inspector is an experimental Gramlot tool for understanding and trying the
 runtime's APIs and design choices. This guide describes intended behavior; bugs,
 incomplete interactions and changes are expected during consolidation.
 
-## 2. Open the Inspector
+<a id="gd-045-010"></a>
 
-Start the [Bakery example](bakery-demo.md), open `/products/explore/`, and click the
+## 010 · Open the Inspector
+
+Block ID: **GD-045-010**.
+
+Start the [Bakery example](025-bakery-demo.md), open `/products/explore/`, and click the
 small magnifying-glass button labelled **Open inspector**. The floating panel has
 **Data** and **Source** tabs. Expand a tree node and select a value to see its
 properties. The panel can be moved and resized.
 
-## 3. Three different views
+<a id="gd-045-015"></a>
+
+## 015 · Three different views
+
+Block ID: **GD-045-015**.
 
 | View | What it shows | What editing means |
 | --- | --- | --- |
@@ -26,7 +40,11 @@ properties. The panel can be moved and resized.
 Source in the Inspector is the running declaration tree, not a Python file editor.
 The separate IDE is another feature with its own access rules.
 
-## 4. Try a Data edit
+<a id="gd-045-020"></a>
+
+## 020 · Try a Data edit
+
+Block ID: **GD-045-020**.
 
 1. In Explore, select a bread and open **Data**.
 2. Expand `detail` and select `title`.
@@ -38,7 +56,11 @@ The separate IDE is another feature with its own access rules.
 This example changes a client value. A later selection or data reload can replace
 it with the value returned by the service.
 
-## 5. Try a Source edit
+<a id="gd-045-025"></a>
+
+## 025 · Try a Source edit
+
+Block ID: **GD-045-025**.
 
 1. Select **Source** and choose the heading node (`h1_0` in this example).
 2. Change its **value** and leave the property row.
@@ -52,7 +74,11 @@ the delete control removes one. Complex values are read-only as a single propert
 expand their tree and select a scalar child instead. This is not a general-purpose
 raw editor for arbitrary objects or Python code.
 
-## 6. Lifetime and effects
+<a id="gd-045-030"></a>
+
+## 030 · Lifetime and effects
+
+Block ID: **GD-045-030**.
 
 Inspector edits affect the running page; they do not rewrite the Python source
 files. Reloading rebuilds the page from its declarations and server data. In the
@@ -65,7 +91,11 @@ does not bypass those checks. Expose inspection only where appropriate for the
 page: `source_inspection` controls availability, and the table admin disables it
 by default. The screenshots use Explore, where it is enabled.
 
-## 7. Screenshot scope
+<a id="gd-045-035"></a>
+
+## 035 · Screenshot scope
+
+Block ID: **GD-045-035**.
 
 These are real local Bakery screenshots captured on 2026-09-16 with the supplied
 Gramlot 0.1.5 candidate. The Data title edit, Source heading edit and restoration

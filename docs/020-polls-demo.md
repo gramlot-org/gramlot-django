@@ -1,4 +1,6 @@
-# Run the Polls demo
+# 020 · Run the Polls demo
+
+Document ID: **GD-020**.
 
 The package includes a Django Polls site with ordinary server-rendered pages and a
 Python-authored Gramlot SPA embedded in its shared site template. After installing the package, run:
@@ -20,7 +22,11 @@ Restarting does not reset votes or duplicate the initial records. Stop it with
 Ctrl-C. The demo is included in the wheel: no checkout, Node, Wagtail or separate
 JavaScript download is required.
 
-## Site structure
+<a id="gd-020-005"></a>
+
+## 005 · Site structure
+
+Block ID: **GD-020-005**.
 
 - `/polls/`: Django question list.
 - `/polls/<id>/`: Django voting form with CSRF protection.
@@ -32,7 +38,11 @@ application structure. It is a local implementation, not a verbatim copy of the
 Django tutorial repository. Additional SPA pages belong in the collection's
 `pages/` directory; the rest of the host site's routes continue to work normally.
 
-## Options
+<a id="gd-020-010"></a>
+
+## 010 · Options
+
+Block ID: **GD-020-010**.
 
 ```sh
 gramlot-django demo polls --port 8070 --open
@@ -50,9 +60,13 @@ applications continue to use their own `manage.py` and settings.
 
 Bakery still uses its separate [setup instructions](https://github.com/gramlot-org/gramlot-django/blob/develop/examples/bakerydemo/GRAMLOT.md).
 Use `gramlot-django demo bakery --project-dir PATH` after installing its separate
-dependencies; see [Bakery demo](bakery-demo.md).
+dependencies; see [Bakery demo](025-bakery-demo.md).
 
-## Development and verification
+<a id="gd-020-015"></a>
+
+## 015 · Development and verification
+
+Block ID: **GD-020-015**.
 
 From an environment containing the development checkout, the same CLI is also
 available as `python -m gramlot_django.cli demo`. After adding/updating console

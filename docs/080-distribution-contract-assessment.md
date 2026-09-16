@@ -1,17 +1,23 @@
-# Phase 1 assessment: core and Django adapter distribution contract
+# 080 · Phase 1 assessment: core and Django adapter distribution contract
+
+Document ID: **GD-080**.
 
 Date: 2026-09-15
 
 **Historical pre-implementation assessment.** The public hosting/transport
 interface and adapter migration have since been implemented locally. The
-[release procedure](release.md) tracks the remaining publication gates.
+[release procedure](065-release.md) tracks the remaining publication gates.
 The observations and proposals below describe the original audit snapshot.
 Scope: release baseline and the supported interface between `gramlot` and
 `gramlot-django`. This assessment records the current working trees; it does not
 authorize publication and does not treat earlier migration results as release
 acceptance.
 
-## Status
+<a id="gd-080-005"></a>
+
+## 005 · Status
+
+Block ID: **GD-080-005**.
 
 Phase 1 is **not ready to close**. The extracted Django adapter works against the
 local core, but its production code imports two private core modules and calls a
@@ -30,7 +36,11 @@ No releasable commit set can be named from the current HEADs:
 These hashes identify the inspected baselines, not candidate release commits.
 Unrelated working changes must remain out of the phase commits.
 
-## Verified ownership boundary
+<a id="gd-080-010"></a>
+
+## 010 · Verified ownership boundary
+
+Block ID: **GD-080-010**.
 
 Gramlot owns stateless page authoring and method roles, page discovery and
 invocation, TYTX transport, the shared store, startup-document generation,
@@ -46,7 +56,11 @@ that the shared host facilities are exposed only under
 `gramlot.contrib._shared`, whose package docstring explicitly calls them
 internal.
 
-## Exact core surface consumed by `gramlot_django`
+<a id="gd-080-015"></a>
+
+## 015 · Exact core surface consumed by `gramlot_django`
+
+Block ID: **GD-080-015**.
 
 ### Private imports that require a supported replacement
 
@@ -100,7 +114,11 @@ them in the compatibility contract even though their imports need no path change
 The temporary pages in the adapter tests also use
 `gramlot.page.InvocationContext`.
 
-## Proposed public interface
+<a id="gd-080-020"></a>
+
+## 020 · Proposed public interface
+
+Block ID: **GD-080-020**.
 
 This section is a proposal, not verified current behavior.
 
@@ -186,7 +204,11 @@ compatibility statement. The old `_shared` paths may remain private implementati
 paths during this pre-alpha transition; neither external adapter may import them
 after the coordinated update.
 
-## Minimal file-level implementation plan
+<a id="gd-080-025"></a>
+
+## 025 · Minimal file-level implementation plan
+
+Block ID: **GD-080-025**.
 
 ### Gramlot core
 
@@ -224,7 +246,11 @@ The compatibility modules still present under `gramlot.contrib.fastapi*` should
 remain thin transition shims. They must not become a second implementation of
 the hosting contract.
 
-## Contract test gate
+<a id="gd-080-030"></a>
+
+## 030 · Contract test gate
+
+Block ID: **GD-080-030**.
 
 The following tests are meaningful phase 1 gates:
 
@@ -260,7 +286,11 @@ The following tests are meaningful phase 1 gates:
 Apply the equivalent private-import guard and public invocation tests to
 `gramlot-fastapi` before calling the shared interface stable.
 
-## Dependency and release blockers
+<a id="gd-080-035"></a>
+
+## 035 · Dependency and release blockers
+
+Block ID: **GD-080-035**.
 
 ### Verified facts
 
@@ -310,7 +340,11 @@ Apply the equivalent private-import guard and public invocation tests to
 - Replace moving-branch CI inputs with exact candidate artifacts once the three
   working trees are separated into reviewable commits.
 
-## Phase 1 done gate
+<a id="gd-080-040"></a>
+
+## 040 · Phase 1 done gate
+
+Block ID: **GD-080-040**.
 
 Phase 1 can close only when:
 
@@ -325,7 +359,11 @@ Phase 1 can close only when:
 6. core contract tests plus both adapters' relevant behavior tests pass against
    those exact commits or artifacts.
 
-## Verification performed for this assessment
+<a id="gd-080-045"></a>
+
+## 045 · Verification performed for this assessment
+
+Block ID: **GD-080-045**.
 
 Source and Git state were inspected in all three repositories. Two isolated
 subprocess probes passed: the current Django adapter imports with FastAPI,

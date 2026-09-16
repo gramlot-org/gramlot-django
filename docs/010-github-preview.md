@@ -1,12 +1,18 @@
-# Install the experimental preview
+# 010 · Install the experimental preview
+
+Document ID: **GD-010**.
 
 This download is a POC under review, not the forthcoming consolidated prerelease.
-Gramlot itself is being reviewed and consolidated; see [repository roles](overview.md).
+Gramlot itself is being reviewed and consolidated; see [repository roles](005-overview.md).
 
 This GitHub prerelease pairs gramlot-django 0.1.0 with a compatible Gramlot 0.1.5
 candidate. Neither version is published on PyPI as part of this release.
 
-## Installation
+<a id="gd-010-005"></a>
+
+## 005 · Installation
+
+Block ID: **GD-010-005**.
 
 Create and activate a Python 3.11+ virtual environment, then run:
 
@@ -29,9 +35,13 @@ to its release. For the current usable POC, use the command above.
 These previews evaluate API and design choices. Described behavior is intended
 behavior; bugs and unfinished cases may exist. Passing checks cover specific
 scenarios and are not a bug-free guarantee. Polls is bundled; Bakery needs the
-separate repository example and Wagtail dependencies; see [Bakery](bakery-demo.md).
+separate repository example and Wagtail dependencies; see [Bakery](025-bakery-demo.md).
 
-## Artifact provenance
+<a id="gd-010-010"></a>
+
+## 010 · Artifact provenance
+
+Block ID: **GD-010-010**.
 
 The Gramlot core wheel and matching source archive are the locally built candidate
 used to verify the Bakery inspector theme correction on 2026-09-15. They are
@@ -43,7 +53,11 @@ installation follows `main`; use its full commit SHA for reproducibility.
 
 This is an experimental preview. The demo server is for local development.
 
-## Verification
+<a id="gd-010-015"></a>
+
+## 015 · Verification
+
+Block ID: **GD-010-015**.
 
 The preview was checked with Python 3.12 in a fresh environment using the attached
 wheels: Django system checks and nested runtime delivery pass without editable

@@ -11,8 +11,8 @@ These previews evaluate APIs and design choices. Described behavior is intended;
 bugs and unfinished cases may exist.
 Examples use ``gramlot-poc`` and will evolve with Gramlot.
 
-Start with :doc:`github-preview` to install the POC, :doc:`quickstart` for your
-first page, or :doc:`architecture` for the server and database boundaries.
+Start with :doc:`010-github-preview` to install the POC, :doc:`015-quickstart` for your
+first page, or :doc:`030-architecture` for the server and database boundaries.
 
 `Browse the source code <https://github.com/gramlot-org/gramlot-django/tree/main/src/gramlot_django>`_
 · `Concise documentation for LLMs <https://github.com/gramlot-org/gramlot-django/tree/main/docs_llm>`_
@@ -21,35 +21,35 @@ first page, or :doc:`architecture` for the server and database boundaries.
    :maxdepth: 1
    :caption: Start here
 
-   overview
-   github-preview
-   quickstart
-   polls-demo
-   bakery-demo
+   005-overview
+   010-github-preview
+   015-quickstart
+   020-polls-demo
+   025-bakery-demo
 
 .. toctree::
    :maxdepth: 1
    :caption: Integration
 
-   architecture
-   django
-   admin-spa
-   inspector
+   030-architecture
+   035-django
+   040-admin-spa
+   045-inspector
 
 .. toctree::
    :maxdepth: 1
    :caption: Contributing
 
-   getting-started
-   documentation
-   readthedocs
+   050-getting-started
+   055-documentation
+   060-readthedocs
+   065-release
 
 .. toctree::
    :maxdepth: 1
    :caption: POC development records
 
-   migration
-   distribution-plan
-   distribution-contract-assessment
-   release
-   candidate-verification
+   070-migration
+   075-distribution-plan
+   080-distribution-contract-assessment
+   085-candidate-verification

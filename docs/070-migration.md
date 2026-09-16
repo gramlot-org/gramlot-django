@@ -1,9 +1,15 @@
-# Django extraction — 2026-09-15
+# 070 · Django extraction — 2026-09-15
+
+Document ID: **GD-070**.
 
 The adapter now belongs to `gramlot_django`. This is a local migration from the
 sibling Gramlot checkout, preserving its existing working changes.
 
-## Transferred ownership
+<a id="gd-070-005"></a>
+
+## 005 · Transferred ownership
+
+Block ID: **GD-070-005**.
 
 - Seven Python modules from `src/gramlot/contrib/django`.
 - The real Django adapter test suite, now requiring Django instead of skipping.
@@ -12,7 +18,7 @@ sibling Gramlot checkout, preserving its existing working changes.
   to this repository; dated core development/context records remain historical.
 
 Subsequent distribution work exposes the shared contract through `gramlot.hosting`
-and `gramlot.transport`; see [release procedure](release.md) for current checks.
+and `gramlot.transport`; see [release procedure](065-release.md) for current checks.
 
 The old core package modules, test file, example files and Django extra are
 removed. Applications import `gramlot_django`; the core retains WebPage,
@@ -23,7 +29,11 @@ tracked source: this migration does not replace their installed packages or
 restart them. The existing workspace launcher still uses its prepared historical
 Bakery environment. The migrated example has its own setup instructions.
 
-## Original extraction verification
+<a id="gd-070-010"></a>
+
+## 010 · Original extraction verification
+
+Block ID: **GD-070-010**.
 
 - 26 Django behavior cases pass in this repository's Python 3.12 environment.
 - 26 cases pass against the installed adapter wheel and installed core in an
@@ -39,10 +49,14 @@ Bakery environment. The migrated example has its own setup instructions.
 
 These original checks did not include a new interactive browser test or a full
 core regression run. Subsequent distribution verification is recorded in
-[candidate verification](candidate-verification.md). Historical verification claims in the offline handbook retain
+[candidate verification](085-candidate-verification.md). Historical verification claims in the offline handbook retain
 their original scope and dates.
 
-## Coordinated dependency changes
+<a id="gd-070-015"></a>
+
+## 015 · Coordinated dependency changes
+
+Block ID: **GD-070-015**.
 
 Only Gramlot 0.1.0a1 was available on PyPI at inspection. This adapter requires
 the current local 0.1.5 core APIs, so development uses an explicit sibling source

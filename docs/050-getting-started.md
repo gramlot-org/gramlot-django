@@ -1,4 +1,6 @@
-# Getting started
+# 050 · Getting started
+
+Document ID: **GD-050**.
 
 This repository provides `gramlot_django`, the Django-specific integration.
 Keep the current Gramlot 0.1.5 checkout at `../gramlot-poc`, then run:
@@ -24,4 +26,4 @@ Gramlot. This package consumes those assets and does not build a second runtime.
 Run the customer demonstration from `examples/` using the environment above;
 see [example setup](https://github.com/gramlot-org/gramlot-django/blob/develop/examples/README.md). Bakery has additional Wagtail
 requirements and its own [setup instructions](https://github.com/gramlot-org/gramlot-django/blob/develop/examples/bakerydemo/GRAMLOT.md).
-See [the integration guide](django.md) to add pages to an existing project.
+See [the integration guide](035-django.md) to add pages to an existing project.
