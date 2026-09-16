@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "gramlot-django"
-version = "0.0.0.dev0"
+version = "0.1.0"
 description = "Gramlot applications hosted by Django"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -19,10 +19,19 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-# Runtime dependencies are selected with the first implemented host profile.
-dependencies = []
+# The required core API exists in the local 0.1.5 checkout; see docs/getting-started.md.
+dependencies = [
+    "gramlot==0.1.5",
+    "Django>=5.2,<6.1",
+    "asgiref>=3.8.1,<4",
+    "genro-bag>=0.21.1,<0.22",
+]
+
+[project.scripts]
+gramlot-django = "gramlot_django.cli:main"
 
 [project.optional-dependencies]
+browser = ["playwright>=1.50,<2"]
 test = ["pytest>=7.0", "pytest-cov>=4.0", "pytest-asyncio>=0.23"]
 dev = ["gramlot-django[test]", "ruff>=0.1.0", "mypy>=1.0", "build>=1.2", "twine>=5.0"]
 docs = ["sphinx>=7.0", "sphinx-rtd-theme>=2.0", "sphinx-autodoc-typehints>=2.0", "myst-parser>=2.0"]
@@ -57,3 +66,10 @@ python_version = "3.11"
 warn_return_any = true
 warn_unused_configs = true
 exclude = ["tests/"]
+
+[tool.uv.sources]
+gramlot = { path = "../gramlot-poc", editable = true }
+
+[tool.ruff.lint.per-file-ignores]
+# Django must be configured and initialized before importing models.
+"tests/test_django_adapter.py" = ["E402"]

@@ -1,63 +1,87 @@
 # gramlot-django
 
-Gramlot applications hosted by Django.
+Django hosting, page authoring and ORM integration for Gramlot.
 
-**Status: Pre-Alpha — repository boilerplate, no application implementation yet.**
+**Status: Pre-Alpha — 0.1.0 GitHub preview; not published on PyPI.**
 
-## Scope
+This repository owns the Python Django adapter, its behavior tests and Django
+examples. Import it through `gramlot_django`. Gramlot supplies the independent
+Python builder/page services, typed transport and browser runtime.
 
-Django integration, with the Bakery application as the intended presentation example.
+## Implemented scope
 
-Use the existing gramlot.contrib.django adapter and standard Django project conventions. Verify which published Gramlot distribution contains the adapter before pinning dependencies.
+- `DjangoPageCollection`: normal Django URLconf integration, page discovery,
+  Source/Data RPC, packaged runtime delivery and host templates.
+- `DjangoPage`: request context, page permissions and explicit ORM selections.
+- Schema browsing, `DjangoTablesPage` and `DjangoIdePage`.
+- Real middleware, CSRF, authentication, ORM and transaction behavior tests.
+- Customer example and adapted Bakery/Wagtail demonstration.
 
-The package currently contains only its namespace. Installing it does not start
-a server or provide a working demo. Adapter extraction, runtime dependencies,
-page migration and host commands are future implementation work described in
-[SPECIFICATION.md](SPECIFICATION.md).
+Use Django's normal settings, middleware, database configuration and management
+commands. Application UI and interactions are authored through Python Gramlot
+pages. See [the integration guide](docs/django.md) and [examples](examples/README.md).
+
+## Install the GitHub preview
+
+Python 3.11+; no Node.js or local Gramlot checkout is required.
+In a virtual environment, install the compatible core and this adapter together:
+
+```sh
+python -m pip install \
+  'https://github.com/gramlot-org/gramlot-django/releases/download/v0.1.0-preview.1/gramlot-0.1.5-py3-none-any.whl#sha256=63466802618c8cbd3fed0a83e1072556085a31bd522477dbcfe1122417a26f4a' \
+  'git+https://github.com/gramlot-org/gramlot-django.git@v0.1.0-preview.1'
+gramlot-django demo --open
+```
+
+The GitHub prerelease also provides wheels, source distributions and SHA-256
+checksums. The bundled Gramlot 0.1.5 candidate supplies the Python APIs and
+compiled browser runtime. `pip install gramlot-django` from PyPI alone is not
+available yet. See [GitHub preview details](docs/github-preview.md),
+[the quickstart](docs/quickstart.md) and [release procedure](docs/release.md).
+
+## Bakery showcase
+
+The full Wagtail Bakery site is the main integration demonstration, with Gramlot
+SPA pages inside its navigation and templates. See [Bakery setup](docs/bakery-demo.md)
+for `gramlot-django demo bakery`. Its dependencies and project files remain separate.
+
+## Polls demo
+
+With the package installed:
+
+```sh
+gramlot-django demo --open
+```
+
+This starts a Django Polls site with an embedded Gramlot SPA and shared SQLite votes at
+`http://127.0.0.1:8064/polls/`. See [demo options](docs/polls-demo.md).
+This is a development preview, not a production release.
 
 ## Development
 
+Python 3.11+; Django 5.2 or 6.0 subject to its Python requirements.
+The integration requires the **local Gramlot 0.1.5 source**, not the older
+0.1.0a1 package currently published on PyPI. Keep the `gramlot-poc` checkout beside
+this repository; `tool.uv.sources` explicitly selects it for development.
+
 ```sh
-git clone https://github.com/gramlot-org/gramlot-django.git
-cd gramlot-django
 uv sync --extra dev --extra docs
 uv run python scripts/check.py
+uv run mypy src/  # advisory
 uv run python -m build
 uv run python -m twine check dist/*
 git config core.hooksPath hooks
 ```
 
-Python 3.11+; Hatchling build backend; pytest, Ruff and advisory mypy; Sphinx
-with Markdown support. These conventions follow `genro-asgi`. `uv.lock` records
-the development environment. A pip-based setup is also supported:
-`python -m pip install -e '.[dev,docs]'`.
-
-## Layout
-
-- `src/gramlot_django/`: future implementation package.
-- `tests/`: behavior tests added with the first implementation.
-- `examples/`: future runnable, Python-authored Gramlot examples.
-- `docs/`: Sphinx documentation.
-- `hooks/`: pre-commit lint/advisory typing and pre-push checks.
-- `.github/workflows/`: package and documentation checks.
-
-`main` holds the initial baseline; use `develop` for new work. No automatic
-package publication or deployment is configured. Read the Docs configuration
-is provided, but its external service has not been connected.
-
-## Checks
-
-```sh
-uv run python scripts/check.py
-uv run mypy src/  # advisory
-uv run python -m sphinx -W --keep-going -b html docs docs/_build/html
-```
-
-The check script explicitly reports that no application tests exist in the
-initial scaffold. Once `tests/test_*.py` files are added, pytest is mandatory
-and failures block the checks. CI also builds and installs the wheel in a
-separate environment to verify packaging.
+See [getting started](docs/getting-started.md) for installation details and
+[the ownership specification](SPECIFICATION.md) for the core/adapter boundary.
+`develop` is the development branch; `main` is the baseline.
+See [candidate verification](docs/candidate-verification.md) for the passing local
+package and offline browser checks. Manual publication workflows are prepared
+but have not been triggered.
+No deployment is configured.
 
 ## License
 
 Apache License 2.0. Copyright 2026 Softwell S.r.l. See LICENSE and NOTICE.
+The Bakery snapshot retains its upstream license in `examples/bakerydemo/LICENSE`.

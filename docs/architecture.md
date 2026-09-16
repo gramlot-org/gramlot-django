@@ -1,9 +1,18 @@
-# Integration scope
+# Integration architecture
 
-Django integration, with the Bakery application as the intended presentation example.
+`gramlot_django` composes Django with the server-independent Gramlot framework.
 
-Use the existing gramlot.contrib.django adapter and standard Django project conventions. Verify which published Gramlot distribution contains the adapter before pinning dependencies.
+| Owner | Responsibilities |
+| --- | --- |
+| Gramlot | Python WebPage and builder, Source/Data transport, shared service and runtime utilities, JavaScript components |
+| gramlot-django | Django views/URLs, request and permissions, CSRF, ORM projection and schema, Django page specializations |
+| Django application | Models, settings, middleware, URL mounting, record authorization, transactions and Python application pages |
 
-The current artifact is a package scaffold. Hosting, request handling and
-database integration have not been implemented here. Application examples
-will use Python-authored Gramlot pages and explicit host configuration.
+`DjangoPageCollection` discovers pages and adapts Gramlot's service lifecycle to
+Django. `DjangoPage` extends `WebPage` with request context and ORM helpers;
+`DjangoTablesPage` and `DjangoIdePage` specialize it further. Runtime assets are
+served from the installed Gramlot package. Shared core services are exposed through `gramlot.hosting` and
+`gramlot.transport`; compatibility must be checked when core changes.
+
+Examples include a small customer project and the upstream-licensed Bakery
+snapshot. Their pages import `gramlot_django`; neither defines another adapter.
