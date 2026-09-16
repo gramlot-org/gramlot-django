@@ -1,3 +1,5 @@
+<p><img src="docs/_static/gramlot-logo.png" alt="Gramlot logo" width="120"></p>
+
 # gramlot-django
 
 **[Browse the Django adapter source →](src/gramlot_django/)**

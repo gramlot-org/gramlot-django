@@ -1,3 +1,7 @@
+.. image:: _static/gramlot-logo.png
+   :alt: Gramlot logo
+   :width: 120px
+
 Gramlot Django
 ==============
 
