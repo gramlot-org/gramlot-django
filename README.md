@@ -138,6 +138,13 @@ This starts a Django Polls site with an embedded Gramlot SPA and shared SQLite v
 `http://127.0.0.1:8064/polls/`. See [demo options](docs/polls-demo.md).
 This downloadable preview remains a POC, not a production release.
 
+## Documentation build
+
+The Sphinx documentation uses the Gramlot Furo theme, including the shared logo
+and light/dark colors. CI builds the HTML with warnings treated as errors.
+The repository includes Read the Docs configuration; see
+[build and hosting instructions](docs/readthedocs.md) for the external project setup.
+
 ## Development
 
 Python 3.11+; Django 5.2 or 6.0 subject to its Python requirements.

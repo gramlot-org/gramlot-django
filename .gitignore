@@ -56,3 +56,6 @@ worktrees/
 .env.*
 !.env.example
 *.sqlite3
+
+# Optional documentation-only environment
+.venv-docs/

@@ -34,7 +34,7 @@ gramlot-django = "gramlot_django.cli:main"
 browser = ["playwright>=1.50,<2"]
 test = ["pytest>=7.0", "pytest-cov>=4.0", "pytest-asyncio>=0.23"]
 dev = ["gramlot-django[test]", "ruff>=0.1.0", "mypy>=1.0", "build>=1.2", "twine>=5.0"]
-docs = ["sphinx>=7.0", "sphinx-rtd-theme>=2.0", "sphinx-autodoc-typehints>=2.0", "myst-parser>=2.0"]
+docs = ["Sphinx>=8.2,<9", "furo>=2024.8.6,<2027", "myst-parser>=4,<6"]
 
 [project.urls]
 Homepage = "https://github.com/gramlot-org/gramlot-django"
