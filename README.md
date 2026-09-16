@@ -1,5 +1,17 @@
 # gramlot-django
 
+**[Browse the Django adapter source →](src/gramlot_django/)**
+
+The implementation formerly under `gramlot.contrib.django` now lives here in
+`src/gramlot_django`. Import it as `gramlot_django`.
+
+- [Django hosting, URLs and RPC](src/gramlot_django/application.py)
+- [Django pages and ORM selection helpers](src/gramlot_django/page.py)
+- [Schema](src/gramlot_django/schema.py), [table pages](src/gramlot_django/tables.py)
+  and [IDE integration](src/gramlot_django/ide.py)
+- [Runnable examples](examples/) and [behavior tests](tests/)
+
+
 **Current compatibility lane:** this extracted adapter develops and tests against
 sibling `gramlot-poc`, not the documentation-only clean `gramlot` repository.
 The clean product's [constitution](https://github.com/gramlot-org/gramlot/blob/main/docs/00-constitution.md)
