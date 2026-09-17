@@ -169,8 +169,8 @@ This downloadable preview remains a POC, not a production release.
 
 ## Documentation build
 
-The Sphinx documentation uses the Gramlot Furo theme, including the shared logo
-and light/dark colors. CI builds the HTML with warnings treated as errors.
+The Sphinx documentation uses the classic Read the Docs theme with the shared
+Gramlot logo, blue header, dark sidebar and light content. CI builds the HTML with warnings treated as errors.
 The repository includes Read the Docs configuration; see
 [build and hosting instructions](docs/060-readthedocs.md) for the external project setup.
 

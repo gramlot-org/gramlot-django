@@ -31,3 +31,13 @@ of the Django adapter extracted from Gramlot.
 
 - Number maintained guides in steps of five; mirror paths and stable GD document/block
   IDs between docs and docs_llm. Preserve IDs across moves; follow docs/055-documentation.md.
+
+
+## Shared documentation theme — owner directive, 2026-09-16
+
+All Gramlot documentation sites use the classic Read the Docs theme shown by
+Genro Bag: blue header, dark sidebar, light content and default theme typography.
+Use sphinx_rtd_theme for Sphinx (readthedocs for MkDocs). Preserve the Gramlot
+logo and accurate status notices. This supersedes prior Furo/Material choices;
+see ../gramlot/docs/005-documentation-policy.md and constitution section 9.
+This rule also applies to future documentation sites; application UI is separate.
